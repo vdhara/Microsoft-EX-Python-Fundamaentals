@@ -1,0 +1,15 @@
+import os
+current_dir = os.getcwd()
+os.chdir("D:\python")
+change_dir = os.getcwd()
+temp_file = open('mean_temp.txt','a+')
+temp_file.write("Rio de Janeiro,Brazil,30.0,18.0\n")
+temp_file.seek(0,0)
+headings = temp_file.readline()
+headings = headings.split(',')
+city_temp = temp_file.readline()
+while city_temp:
+    city_temp = city_temp.split(',')
+    print(headings[0].title(),"of",city_temp[1],headings[2],"is",city_temp[2],"Celsius.")
+    city_temp = temp_file.readline()
+temp_file.close()
